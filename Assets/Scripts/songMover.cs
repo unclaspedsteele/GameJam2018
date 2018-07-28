@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class songMover : MonoBehaviour
 {
+
+    public int testcounter;
+    public int timeTillStart;
+    public int timeTillMove;
+
+
     public GameObject[] jnotes;
     public GameObject[] knotes;
     public GameObject[] lnotes;
@@ -14,6 +20,8 @@ public class songMover : MonoBehaviour
     public globalVars globals;
 
     public int numNotes = 0;
+
+    public float moveSpeed;
     public float totTime;
 
     public bool startedTransition;
@@ -40,18 +48,24 @@ public class songMover : MonoBehaviour
     {
         totTime += Time.fixedDeltaTime;
 
-        if (totTime > 3)
+        if(totTime > timeTillMove)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - moveSpeed, transform.position.z);
+        }
+
+        if (totTime > timeTillStart)
         {
             musicSource.SetActive(true);
         }
 
-        transform.position = new Vector3(transform.position.x, transform.position.y - .1f, transform.position.z);
+        
 
         if (globals.inTransition)
         {
             if (startedTransition == false)
             {
                 startedTransition = true;
+                testcounter += 1;
                 mySongBars.transform.position = new Vector3(mySongBars.transform.position.x * -1, mySongBars.transform.position.y, mySongBars.transform.position.z);
             }
             DestroyNotesOnScreen();

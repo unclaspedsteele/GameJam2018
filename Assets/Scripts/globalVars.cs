@@ -25,7 +25,9 @@ public class globalVars : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         maxHealth = Mathf.RoundToInt(numNotes * .1f);
+        Debug.Log(maxHealth);
         enemyHealth = Mathf.RoundToInt(numNotes * .7f);
+        Debug.Log(enemyHealth);
         health = maxHealth;
         onOffense = true;
         inTransition = false;

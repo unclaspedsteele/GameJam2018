@@ -11,6 +11,7 @@ public class CameraMovement : MonoBehaviour {
 
     //Drag in the music notes
     public GameObject musicNotes;
+    public globalVars globals;
 
     //The number of frames to do the movements
     public float framesToMove;
@@ -46,6 +47,7 @@ public class CameraMovement : MonoBehaviour {
         moveSpeed = 5f;
         normalOrtho = 12.3f;
 
+        globals = GameObject.Find("globals").GetComponent<globalVars>();
 
         //The original location of the music notes
         startMusicNotesPosition = musicNotes.transform.position;
@@ -53,7 +55,14 @@ public class CameraMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        musicNotes.transform.position = new Vector3(startMusicNotesPosition.x, musicNotes.transform.position.y, musicNotes.transform.position.z);
+        if (globals.onOffense)
+        {
+            musicNotes.transform.position = new Vector3(startMusicNotesPosition.x, musicNotes.transform.position.y, musicNotes.transform.position.z);
+        }
+        else
+        {
+            musicNotes.transform.position = new Vector3(startMusicNotesPosition.x * -1f, musicNotes.transform.position.y, musicNotes.transform.position.z);
+        }
     }
     void LateUpdate()
     {
@@ -66,7 +75,7 @@ public class CameraMovement : MonoBehaviour {
             TheCamera.GetComponent<Camera>().orthographicSize = Mathf.MoveTowards(targetOrtho, zoomOrtho, zoomSpeed * Time.deltaTime);
 
             //Moves the music grid back
-            musicNotes.transform.position = new Vector3(startMusicNotesPosition.x, musicNotes.transform.position.y, musicNotes.transform.position.z);
+            //musicNotes.transform.position = new Vector3(startMusicNotesPosition.x, musicNotes.transform.position.y, musicNotes.transform.position.z);
 
 
             moveCount++;
@@ -81,7 +90,7 @@ public class CameraMovement : MonoBehaviour {
             TheCamera.GetComponent<Camera>().orthographicSize = Mathf.MoveTowards(targetOrtho, zoomOrtho, zoomSpeed * Time.deltaTime);
 
             //Moves the music grid back
-            musicNotes.transform.position = new Vector3(startMusicNotesPosition.x, musicNotes.transform.position.y, musicNotes.transform.position.z);
+            //musicNotes.transform.position = new Vector3(startMusicNotesPosition.x, musicNotes.transform.position.y, musicNotes.transform.position.z);
 
 
             moveCount++;
@@ -97,7 +106,7 @@ public class CameraMovement : MonoBehaviour {
             TheCamera.GetComponent<Camera>().orthographicSize = Mathf.MoveTowards(targetOrtho, normalOrtho, zoomSpeed * Time.deltaTime);
 
             //Moves the music grid back while the camera moves
-            musicNotes.transform.position = new Vector3(startMusicNotesPosition.x, musicNotes.transform.position.y, musicNotes.transform.position.z);
+            //musicNotes.transform.position = new Vector3(startMusicNotesPosition.x, musicNotes.transform.position.y, musicNotes.transform.position.z);
 
 
             moveCount++;

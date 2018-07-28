@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 327845021}
   - component: {fileID: 327845020}
   - component: {fileID: 327845019}
+  - component: {fileID: 327845022}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -541,6 +542,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &327845022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 327845017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828921b394b8a49959a19a47f2f358ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossName: {fileID: 517421411}
+  Fight: {fileID: 635967732}
 --- !u!1 &330179768
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +768,8 @@ MonoBehaviour:
   leftTraget: {fileID: 1960104896}
   rightTarget: {fileID: 1536928194}
   TheCamera: {fileID: 361600543}
+  musicNotes: {fileID: 1515131371}
+  globals: {fileID: 0}
   framesToMove: 120
   moveCount: 0
   lookAtLeft: 0
@@ -763,6 +779,8 @@ MonoBehaviour:
   zoomOrtho: 10
   moveSpeed: 0
   normalOrtho: 0
+  startMusicNotesPosition: {x: 0, y: 0, z: 0}
+  musicNotesNewPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &367762235
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +879,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 90.99999}
   m_SizeDelta: {x: 400, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &517421413
@@ -887,10 +905,10 @@ MonoBehaviour:
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 3
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 0
-  m_FillOrigin: 0
+  m_FillOrigin: 1
 --- !u!222 &517421414
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -926,17 +944,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  maxHealth: 0
   health: 0
   enemyHealth: 0
   sideSwitchCounter: 0
   sideSwitchCounterMax: 20
   switchBackCounter: 0
   switchBackCounterMax: 20
+  numNotes: 0
   switchCountTimer: 0
   switchCountTimerMax: 5
   timeToSwitch: 0
   onOffense: 0
   inTransition: 0
+  spaceIsPressed: 0
 --- !u!4 &518210540
 Transform:
   m_ObjectHideFlags: 0
@@ -948,7 +969,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615176886
 GameObject:
@@ -1101,7 +1122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 91}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635967734
@@ -1299,7 +1320,7 @@ Transform:
   - {fileID: 211411186}
   - {fileID: 615176887}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1259530453
 Prefab:
@@ -1521,7 +1542,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1515131371 stripped
 GameObject:
@@ -1544,6 +1565,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dbd1c28f089abe4b8faa2c5f71fe855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testcounter: 0
+  timeTillStart: 3
+  timeTillMove: 0
   jnotes: []
   knotes: []
   lnotes: []
@@ -1552,6 +1576,7 @@ MonoBehaviour:
   mySongBars: {fileID: 1515131371}
   globals: {fileID: 0}
   numNotes: 0
+  moveSpeed: 0.1
   totTime: 0
   startedTransition: 0
 --- !u!1 &1522177248
@@ -1830,7 +1855,7 @@ Transform:
   m_LocalScale: {x: 45, y: -26, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1661337958
 MonoBehaviour:
@@ -1965,7 +1990,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1833785442
 Prefab:
@@ -2004,7 +2029,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4047793330034134, guid: 38fa5e836b6424aef859af9ac629ff4e, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1604248131348124, guid: 38fa5e836b6424aef859af9ac629ff4e, type: 2}
       propertyPath: m_Name
@@ -2104,7 +2129,7 @@ Transform:
   m_LocalScale: {x: 4.3967, y: 6.7116, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022786628
 GameObject:
