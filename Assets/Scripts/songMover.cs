@@ -29,7 +29,7 @@ public class songMover : MonoBehaviour
     Renderer note_renderer;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         startedTransition = false;
         globals = GameObject.Find("globals").GetComponent<globalVars>();
