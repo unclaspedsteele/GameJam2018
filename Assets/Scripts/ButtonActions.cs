@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class ButtonActions : MonoBehaviour {
@@ -25,7 +26,7 @@ public class ButtonActions : MonoBehaviour {
     //Loads the next scene
     public void playGame()
     {
-        Debug.Log("Player wants to play the game");
+        Debug.Log("Player wants to select a song!");
         MainMenuPanel.SetActive(false);
         SongSelectionPanel.SetActive(true);
         
@@ -35,5 +36,11 @@ public class ButtonActions : MonoBehaviour {
     public void playCredits()
     {
         Debug.Log("Player wants to see the credits");
+    }
+
+    public void startLevel()
+    {
+        Debug.Log("Begin playing the level");
+        SceneManager.LoadScene("Level1");
     }
 }

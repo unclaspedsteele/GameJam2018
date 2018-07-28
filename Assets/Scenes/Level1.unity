@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -773,8 +773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeca9129ea7a26044a2978d02cd20dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftTraget: {fileID: 0}
-  rightTarget: {fileID: 0}
+  leftTraget: {fileID: 426177720}
+  rightTarget: {fileID: 647177091}
   TheCamera: {fileID: 361600543}
   musicNotes: {fileID: 1515131371}
   globals: {fileID: 0}
