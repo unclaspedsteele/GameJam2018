@@ -5,12 +5,14 @@ using UnityEngine;
 public class globalVars : MonoBehaviour {
 
     public int score;
+    public int maxHealth;
     public int health;
     public int enemyHealth;
     public int sideSwitchCounter; //this will keep track of the number of misses the player has had in the last however many seconds
     public int sideSwitchCounterMax; //set this to the max number of misses before the player is switched to defence
     public int switchBackCounter;
     public int switchBackCounterMax; //set this to the number of notes you want the player to hit in order to go back on offense
+    public int numNotes;
 
     public float switchCountTimer; 
     public float switchCountTimerMax; //Set this to the amount of time you want to give the player to miss notes before a note miss is replaced
@@ -18,10 +20,13 @@ public class globalVars : MonoBehaviour {
 
     public bool onOffense;
     public bool inTransition; //are we transitioning from offense to defense or visa versa? If so, this is true.
+    public bool spaceIsPressed;
 
     // Use this for initialization
 	void Start () {
-        health = 100;
+        maxHealth = Mathf.RoundToInt(numNotes * .1f);
+        enemyHealth = Mathf.RoundToInt(numNotes * .7f);
+        health = maxHealth;
         onOffense = true;
         inTransition = false;
 	}
@@ -59,9 +64,12 @@ public class globalVars : MonoBehaviour {
 
         if(switchBackCounter > switchBackCounterMax)
         {
-            onOffense = true;
-            inTransition = true;
-            switchBackCounter = 0;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                onOffense = true;
+                inTransition = true;
+                switchBackCounter = 0;
+            }
         }
 
 	}

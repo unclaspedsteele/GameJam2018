@@ -73,9 +73,14 @@ public class key1Detector : MonoBehaviour {
         {
             hasHit = false;
             correctHit = false;
-            if(correctHit == false)
+            if (correctHit == false && globals.onOffense)
             {
                 globals.sideSwitchCounter += 1;
+                correctHit = true;
+            }
+            else if (correctHit == false && !globals.onOffense)
+            {
+                globals.health -= 1;
                 correctHit = true;
             }
         }

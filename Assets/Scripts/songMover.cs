@@ -31,16 +31,20 @@ public class songMover : MonoBehaviour
         scnotes = GameObject.FindGameObjectsWithTag("scAttack");
 
         numNotes = jnotes.Length + knotes.Length + lnotes.Length + scnotes.Length;
+
+        globals.numNotes = numNotes;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         totTime += Time.fixedDeltaTime;
+
         if (totTime > 3)
         {
             musicSource.SetActive(true);
         }
+
         transform.position = new Vector3(transform.position.x, transform.position.y - .1f, transform.position.z);
 
         if (globals.inTransition)
