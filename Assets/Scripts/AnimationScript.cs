@@ -9,22 +9,21 @@ public class AnimationScript : MonoBehaviour
 
     public float publicBPS;
     public float publicFPS;
-    public float numberOfImages;
+    public int numberOfImages;
     int currentImage;
     float timer;
     float speed;
     float rentFrame;
     int currentImagenabled;
-    //bool playingAnimation;
     Image playerMaterial;
-    Sprite[] AnimationDefault = new Sprite[4];
-    Sprite[] AnimationStill = new Sprite[4];
-    Sprite[] AnimationDeath = new Sprite[4];
-    Sprite[] AnimationJ = new Sprite[4];
-    Sprite[] AnimationK = new Sprite[4];
-    Sprite[] AnimationL = new Sprite[4];
-    Sprite[] AnimationSemi = new Sprite[4];
-    Sprite[] NextAnimation = new Sprite[4];
+    Sprite[] AnimationDefault;
+    Sprite[] AnimationStill;
+    Sprite[] AnimationDeath;
+    Sprite[] AnimationJ;
+    Sprite[] AnimationK;
+    Sprite[] AnimationL;
+    Sprite[] AnimationSemi;
+    Sprite[] NextAnimation;
 
     globalVars globals;
 
@@ -39,6 +38,15 @@ public class AnimationScript : MonoBehaviour
         currentImage = 0;
         timer = 0;
         //playingAnimation = false;
+
+
+        AnimationDefault = new Sprite[numberOfImages];
+        AnimationStill = new Sprite[numberOfImages];
+        AnimationDeath = new Sprite[numberOfImages];
+        AnimationJ = new Sprite[numberOfImages];
+        AnimationK = new Sprite[numberOfImages];
+        AnimationL = new Sprite[numberOfImages];
+        AnimationSemi = new Sprite[numberOfImages];
 
         AnimationStill[0] = Resources.Load<Sprite>("Animations/Idle01");
         AnimationStill[1] = AnimationStill[0];

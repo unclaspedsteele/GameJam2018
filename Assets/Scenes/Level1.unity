@@ -693,6 +693,7 @@ GameObject:
   - component: {fileID: 361600545}
   - component: {fileID: 361600544}
   - component: {fileID: 361600547}
+  - component: {fileID: 361600548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -789,6 +790,21 @@ MonoBehaviour:
   normalOrtho: 0
   startMusicNotesPosition: {x: 0, y: 0, z: 0}
   musicNotesNewPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &361600548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 361600543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad6ce83176dacf408a4d6440b798996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraMovement: {fileID: 0}
+  TheCamera: {fileID: 361600543}
+  breakTime: 0
+  start: 0
 --- !u!1 &367762235
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,8 +904,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -91.1, y: -68.1}
-  m_SizeDelta: {x: 125, y: 150}
+  m_AnchoredPosition: {x: -75, y: -60}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &426177722
 MonoBehaviour:
@@ -904,7 +920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   publicBPS: 124
   publicFPS: 60
-  numberOfImages: 4
+  numberOfImages: 0
 --- !u!114 &426177723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,8 +1302,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 91.09999, y: -68.09999}
-  m_SizeDelta: {x: 125, y: 150}
+  m_AnchoredPosition: {x: 75, y: -60}
+  m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &647177093
 MonoBehaviour:
