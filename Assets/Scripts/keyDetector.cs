@@ -31,9 +31,9 @@ public class keyDetector : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
-        globals = GameObject.Find("globals").GetComponent<globalVars>();
-        enemyHealthBar = GameObject.Find("Canvas").transform.Find("Enemy").Find("EnemyHealth").GetComponent<Image>();
-        playerHealthBar = GameObject.Find("Canvas").transform.Find("Player").Find("PlayerHealth").GetComponent<Image>();
+        globals = GameObject.Find("Globals").GetComponent<globalVars>();
+        enemyHealthBar = GameObject.Find("Canvas").transform.Find("EnemyHealth").GetComponent<Image>();
+        playerHealthBar = GameObject.Find("Canvas").transform.Find("PlayerHealth").GetComponent<Image>();
 
         if (j)
         {
@@ -152,8 +152,6 @@ public class keyDetector : MonoBehaviour {
         {
             enemyHealthBar.fillAmount = globals.enemyHealth / (globals.numNotes * .7f);
         }
-
-        Debug.Log("Health: " + characterHealth);
     }
 
 

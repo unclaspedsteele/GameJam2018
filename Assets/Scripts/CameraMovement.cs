@@ -47,7 +47,7 @@ public class CameraMovement : MonoBehaviour {
         moveSpeed = 5f;
         normalOrtho = 12.3f;
 
-        globals = GameObject.Find("globals").GetComponent<globalVars>();
+        globals = GameObject.Find("Globals").GetComponent<globalVars>();
 
         //The original location of the music notes
         startMusicNotesPosition = musicNotes.transform.position;

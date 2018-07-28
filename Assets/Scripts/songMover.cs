@@ -32,7 +32,7 @@ public class songMover : MonoBehaviour
     void Awake()
     {
         startedTransition = false;
-        globals = GameObject.Find("globals").GetComponent<globalVars>();
+        globals = GameObject.Find("Globals").GetComponent<globalVars>();
         jnotes = GameObject.FindGameObjectsWithTag("jAttack");
         knotes = GameObject.FindGameObjectsWithTag("kAttack");
         lnotes = GameObject.FindGameObjectsWithTag("lAttack");
