@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour {
 
     //The number of frames to do the movements
     public float framesToMove;
-    private int moveCount;
+    public int moveCount;
     
     //Triggering these action is a matter of changing the value of these bools (it auto switches off)
     public bool lookAtLeft;
@@ -19,8 +19,9 @@ public class CameraMovement : MonoBehaviour {
     public bool resetCamera;
 
     //The speed of zooming in or out
-    public float smoothSpeed;
+    public float zoomSpeed;
     public float zoomOrtho;
+    public float moveSpeed;
     public float normalOrtho;
 
     //The camer's orthographic size
@@ -32,17 +33,12 @@ public class CameraMovement : MonoBehaviour {
         lookAtLeft = false;
         lookAtRight = false;
         resetCamera = false;
-        targetOrtho = Camera.main.orthographicSize;
-
-        //The zoom speed
-        smoothSpeed = 2.5f;
-
-        //Zoom amount
-        zoomOrtho = 3f;
-
-        //No zoom
-        normalOrtho = 5f;
-}
+        targetOrtho = TheCamera.GetComponent<Camera>().orthographicSize;
+        zoomSpeed = 4f;
+        zoomOrtho = 5f;
+        moveSpeed = 2.5f;
+        normalOrtho = 12.3f;
+    }
 
 
     void Update()
@@ -50,18 +46,20 @@ public class CameraMovement : MonoBehaviour {
         if (leftTraget != null && lookAtLeft && moveCount<= framesToMove)
         {
             lookAtRight = false;
-            Vector3 newCameraPosition = new Vector3(leftTraget.transform.position.x, leftTraget.transform.position.y, -5);
-            iTween.MoveTo(TheCamera,newCameraPosition, 2.5f);
-            Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, zoomOrtho, smoothSpeed * Time.deltaTime);
+            targetOrtho = TheCamera.GetComponent<Camera>().orthographicSize;
+            Vector3 newCameraPosition = new Vector3(leftTraget.transform.position.x, leftTraget.transform.position.y, TheCamera.transform.position.z);
+            iTween.MoveTo(TheCamera,newCameraPosition, moveSpeed);
+            TheCamera.GetComponent<Camera>().orthographicSize = Mathf.MoveTowards(targetOrtho, zoomOrtho, zoomSpeed * Time.deltaTime);
             moveCount++;
         }
 
         if(rightTarget != null && lookAtRight && moveCount <= framesToMove)
         {
             lookAtLeft = false;
-            Vector3 newCameraPosition = new Vector3(rightTarget.transform.position.x, rightTarget.transform.position.y, -5);
-            iTween.MoveTo(TheCamera, newCameraPosition, 2.5f);
-            Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, zoomOrtho, smoothSpeed * Time.deltaTime);
+            targetOrtho = TheCamera.GetComponent<Camera>().orthographicSize;
+            Vector3 newCameraPosition = new Vector3(rightTarget.transform.position.x, rightTarget.transform.position.y, TheCamera.transform.position.z);
+            iTween.MoveTo(TheCamera, newCameraPosition, moveSpeed);
+            TheCamera.GetComponent<Camera>().orthographicSize = Mathf.MoveTowards(targetOrtho, zoomOrtho, zoomSpeed * Time.deltaTime);
             moveCount++;
         }
 
@@ -69,9 +67,10 @@ public class CameraMovement : MonoBehaviour {
         {
             lookAtRight = false;
             lookAtLeft = false;
-            Vector3 newCameraPosition = new Vector3(0,0, -5);
-            iTween.MoveTo(TheCamera, newCameraPosition, 2.5f);
-            Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, normalOrtho, smoothSpeed * Time.deltaTime);
+            targetOrtho = TheCamera.GetComponent<Camera>().orthographicSize;
+            Vector3 newCameraPosition = new Vector3(0,0,TheCamera.transform.position.z);
+            iTween.MoveTo(TheCamera, newCameraPosition, zoomSpeed);
+            TheCamera.GetComponent<Camera>().orthographicSize = Mathf.MoveTowards(targetOrtho, normalOrtho, zoomSpeed * Time.deltaTime);
             moveCount++;
         }
 

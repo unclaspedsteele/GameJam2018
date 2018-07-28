@@ -11,8 +11,6 @@ public class AnimationScript : MonoBehaviour {
     public Material Black;
     public Material White;
 
-    public globalVars globalVariables;
-
     public float publicBPS;
     public float publicFPS;
     public float numberOfImages;
@@ -24,8 +22,6 @@ public class AnimationScript : MonoBehaviour {
     //bool playingAnimation;
     MeshRenderer playerMaterial;
     Material[] AnimationDefault = new Material[4];
-    Material[] AnimationStill = new Material[4];
-    Material[] AnimationDeath = new Material[4];
     Material[] AnimationJ = new Material[4];
     Material[] AnimationK = new Material[4];
     Material[] AnimationL = new Material[4];
@@ -35,8 +31,7 @@ public class AnimationScript : MonoBehaviour {
     // Use this for initialization
     void Start() {
         //Get Player's Material for updating animation
-        playerMaterial = GetComponent<MeshRenderer>();
-        globalVariables = GameObject.Find("globals").GetComponent<globalVars>();
+        playerMaterial = GetComponent<MeshRenderer>(); 
 
         speed = publicFPS / publicBPS; // Frame Rate divided by number of beats in one second divided by the number of images per animation
 
@@ -44,15 +39,10 @@ public class AnimationScript : MonoBehaviour {
         timer = 0;
         //playingAnimation = false;
 
-        AnimationStill[0] = Black;
-        AnimationStill[1] = White;
-        AnimationStill[2] = Black;
-        AnimationStill[3] = White;
-
-        AnimationDeath[0] = Black;
-        AnimationDeath[1] = Red;
-        AnimationDeath[2] = Black;
-        AnimationDeath[3] = Red;
+        AnimationDefault[0] = Black;
+        AnimationDefault[1] = White;
+        AnimationDefault[2] = Black;
+        AnimationDefault[3] = White;
 
         AnimationJ[0] = Red;
         AnimationJ[1] = Green;
@@ -74,7 +64,6 @@ public class AnimationScript : MonoBehaviour {
         AnimationSemi[2] = Red;
         AnimationSemi[3] = Green;
 
-        AnimationDefault = AnimationStill;
 	}
 
     // Update is called once per frame
@@ -109,20 +98,14 @@ public class AnimationScript : MonoBehaviour {
         }
 
         //Plays the next animation
-        if (timer > 1 / publicBPS / numberOfImages)
-        {
+        if (timer > 1 / publicBPS / numberOfImages) {
             timer = 0;
             playerMaterial.material = NextAnimation[currentImage];
             currentImage++;
-            if (currentImage >= numberOfImages)
-            {
+            if (currentImage >= numberOfImages) {
                 currentImage = 0;
                 NextAnimation = AnimationDefault;
             }
-        }
-
-        if (globalVariables.enemyHealth <= 0) {
-            AnimationDefault = AnimationDeath;
         }
 	}
 }

@@ -8,13 +8,23 @@ public class songMover : MonoBehaviour
     public GameObject[] knotes;
     public GameObject[] lnotes;
     public GameObject[] scnotes;
+    public GameObject musicSource;
+    public GameObject mySongBars;
+
+    public globalVars globals;
 
     public int numNotes = 0;
+    public float totTime;
+
+    public bool startedTransition;
+
     Renderer note_renderer;
 
     // Use this for initialization
     void Start()
     {
+        startedTransition = false;
+        globals = GameObject.Find("globals").GetComponent<globalVars>();
         jnotes = GameObject.FindGameObjectsWithTag("jAttack");
         knotes = GameObject.FindGameObjectsWithTag("kAttack");
         lnotes = GameObject.FindGameObjectsWithTag("lAttack");
@@ -26,11 +36,26 @@ public class songMover : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        totTime += Time.fixedDeltaTime;
+        if (totTime > 3)
+        {
+            musicSource.SetActive(true);
+        }
         transform.position = new Vector3(transform.position.x, transform.position.y - .1f, transform.position.z);
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (globals.inTransition)
         {
+            if (startedTransition == false)
+            {
+                startedTransition = true;
+                mySongBars.transform.position = new Vector3(mySongBars.transform.position.x * -1, mySongBars.transform.position.y, mySongBars.transform.position.z);
+            }
             DestroyNotesOnScreen();
+        }
+
+        if(globals.inTransition == false)
+        {
+            startedTransition = false;
         }
     }
 

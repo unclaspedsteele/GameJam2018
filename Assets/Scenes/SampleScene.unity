@@ -439,6 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bps: 20
   noteCounter: 0
+  totalTimeCounter: 0
   noteBar: {fileID: 1357405843122838, guid: c2f1eddeef35f9647af9c95e665ae62c, type: 2}
   spawnSpot: {fileID: 227209601}
   bars:
@@ -5457,8 +5458,9 @@ MonoBehaviour:
   templ: {fileID: 0}
   tempsc: {fileID: 0}
   song: {fileID: 1820443268}
+  startSong: {fileID: 1131144372141448, guid: 503e49302c98ad1438d696151fde95f4, type: 2}
   totalNotes: 0
-  tester: 0
+  songStarted: 0
 --- !u!4 &702305343
 Transform:
   m_ObjectHideFlags: 0
@@ -5541,6 +5543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  health: 0
 --- !u!1 &1650810488
 GameObject:
   m_ObjectHideFlags: 0
