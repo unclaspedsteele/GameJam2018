@@ -10,21 +10,20 @@ public class IntroCameraMovements : MonoBehaviour {
     //The amount of time between each stage
     public float breakTime;
 
-
     //When true, the intro will start
     public bool start;
-
-    public float timer;
-
+    private float timer;
     private bool stage1;
     private bool stage2;
     private bool stage3;
 
-	// Use this for initialization
-	void Start () {
+    
+    // Use this for initialization
+    void Start () {
         stage1 = false;
         stage2 = false;
-        stage3 = false;
+        stage3 = false;       
+        timer = 0;
         TheCamera = GameObject.Find("Main Camera");
         cameraMovement = TheCamera.GetComponent<CameraMovement>();	
 
@@ -32,23 +31,65 @@ public class IntroCameraMovements : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if(start == true)
+        {          
+            if (timer == 0)
+                stageOne();
+            
+            //Start the timer
+            timer += Time.deltaTime;
 
+            if(timer > 2.5)
+            {
+                stageTwo();
+            }
 
-        
-        
-
-		
+            if(timer > 5)
+            {
+                stageThree();
+            } 
+            
+            if(timer > 8)
+            {              
+                resetInto();               
+            }
+        }
+         		
 	}
 
-    void stageOne(){
-        cameraMovement.lookAtLeft = true;
+    void stageOne()
+    {
+        if (stage1 == false)
+        {
+            stage1 = true;
+            cameraMovement.lookAtLeft = true;                    
+        }
+        
     }
 
-    void stageTwo(){
-        cameraMovement.lookAtRight = true;
+    void stageTwo()
+    {
+        if (stage2 == false)
+        {
+            stage2 = true;
+            cameraMovement.lookAtRight = true;
+        }      
     }
 
     void stageThree(){
-        cameraMovement.lookAtRight = true;
+        if( stage3 == false)
+        {
+            stage3 = true;
+            cameraMovement.resetCamera = true;
+        }   
+    }
+
+    void resetInto()
+    {
+        start = false;
+        timer = 0f;
+        stage1 = false;
+        stage2 = false;
+        stage3 = false;
     }
 }
