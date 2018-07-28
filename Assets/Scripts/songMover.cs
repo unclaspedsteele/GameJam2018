@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class songMover : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class songMover : MonoBehaviour
     public GameObject[] scnotes;
     public GameObject musicSource;
     public GameObject mySongBars;
+
+    public GameObject DefenseText;
+    public GameObject OffenseText;
+    bool TextSwitch;
+    bool TextShow;
+    float timer;
 
     public globalVars globals;
 
@@ -41,6 +48,12 @@ public class songMover : MonoBehaviour
         numNotes = jnotes.Length + knotes.Length + lnotes.Length + scnotes.Length;
 
         globals.numNotes = numNotes;
+
+        DefenseText.GetComponent<Image>().fillAmount = 0;
+        OffenseText.GetComponent<Image>().fillAmount = 0;
+        TextSwitch = false;
+        TextShow = false;
+        timer = 0;
     }
 
     // Update is called once per frame
@@ -67,6 +80,8 @@ public class songMover : MonoBehaviour
                 startedTransition = true;
                 testcounter += 1;
                 mySongBars.transform.position = new Vector3(mySongBars.transform.position.x * -1, mySongBars.transform.position.y, mySongBars.transform.position.z);
+                TextShow = true;
+                TextSwitch = !TextSwitch;
             }
             DestroyNotesOnScreen();
         }
@@ -74,6 +89,40 @@ public class songMover : MonoBehaviour
         if(globals.inTransition == false)
         {
             startedTransition = false;
+        }
+
+        if (TextShow)
+        {
+            GameObject Text;
+            if (TextSwitch)
+            {
+                Text = DefenseText;
+            }
+            else
+            {
+                Text = OffenseText;
+            }
+            Text.SetActive(true);
+
+            timer += Time.fixedDeltaTime;
+
+            if (timer <= 1.5)
+            {
+                Text.GetComponent<Image>().fillAmount = timer;
+            }
+
+            else if (timer >= 2 && timer <= 2.5)
+            {
+                Text.GetComponent<Image>().fillOrigin = 1;
+                Text.GetComponent<Image>().fillAmount = 2 - timer;
+            }
+            else if (timer > 3)
+            {
+                Text.GetComponent<Image>().fillOrigin = 0;
+                Text.SetActive(false);
+                TextShow = false;
+                timer = 0;
+            }
         }
     }
 

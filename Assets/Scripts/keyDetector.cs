@@ -10,6 +10,11 @@ public class keyDetector : MonoBehaviour {
     public globalVars globals;
 
     public GameObject curKey;
+    public GameObject smokePuffJ;
+    public GameObject smokePuffK;
+    public GameObject smokePuffL;
+    public GameObject smokePuffSC;
+    public GameObject smokePuff;
 
     public Image enemyHealthBar;
     public Image playerHealthBar;
@@ -42,6 +47,7 @@ public class keyDetector : MonoBehaviour {
                 letter = KeyCode.J;
             else
                 letter = KeyCode.A;
+            smokePuff = smokePuffJ;
         }
         else if (k)
         {
@@ -50,6 +56,7 @@ public class keyDetector : MonoBehaviour {
                 letter = KeyCode.K;
             else
                 letter = KeyCode.S;
+            smokePuff = smokePuffK;
         }
         else if (l)
         {
@@ -58,6 +65,7 @@ public class keyDetector : MonoBehaviour {
                 letter = KeyCode.L;
             else
                 letter = KeyCode.D;
+            smokePuff = smokePuffL;
         }
         else if (sc)
         {
@@ -66,6 +74,7 @@ public class keyDetector : MonoBehaviour {
                 letter = KeyCode.Semicolon;
             else
                 letter = KeyCode.F;
+            smokePuff = smokePuffSC;
         }
 	}
 	
@@ -109,6 +118,9 @@ public class keyDetector : MonoBehaviour {
             if (Input.GetKeyDown(letter) && globals.onOffense == true)
             {
                 globals.score += 2;
+                GameObject clone = Instantiate(smokePuff, curKey.transform);
+                clone.transform.parent = null;
+                
                 //globals.enemyHealth -= 1;
                 SubHealth(ref globals.enemyHealth, false);
                 Destroy(curKey);
@@ -118,6 +130,8 @@ public class keyDetector : MonoBehaviour {
             else if (Input.GetKeyDown(letter) && globals.onOffense == false)
             {
                 globals.score += 1;
+                GameObject clone = Instantiate(smokePuff, curKey.transform);
+                clone.transform.parent = null;
                 globals.switchBackCounter += 1;
                 Destroy(curKey);
                 correctHit = true;
@@ -130,7 +144,7 @@ public class keyDetector : MonoBehaviour {
             {
                 globals.sideSwitchCounter += 1;
             }
-            else if (Input.GetKeyDown(letter) && globals.onOffense == true)
+            else if (Input.GetKeyDown(letter) && globals.onOffense == false)
             {
                 SubHealth(ref globals.health, true);
                 //globals.health -= 1;
@@ -152,6 +166,7 @@ public class keyDetector : MonoBehaviour {
         {
             enemyHealthBar.fillAmount = globals.enemyHealth / (globals.numNotes * .7f);
         }
+
     }
 
 
