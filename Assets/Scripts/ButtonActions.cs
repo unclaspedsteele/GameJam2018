@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ButtonActions : MonoBehaviour {
 
+    public GameObject MainMenuPanel;
+    public GameObject SongSelectionPanel;
+
 	// Use this for initialization
 	void Start () {
-		
+        MainMenuPanel = GameObject.Find("Main Menu Panel");
+        SongSelectionPanel = GameObject.Find("Song Selection");
+        SongSelectionPanel.SetActive(false);
 	}
 	
 
@@ -21,6 +26,10 @@ public class ButtonActions : MonoBehaviour {
     public void playGame()
     {
         Debug.Log("Player wants to play the game");
+        MainMenuPanel.SetActive(false);
+        SongSelectionPanel.SetActive(true);
+        
+
     }
 
     public void playCredits()
