@@ -20,15 +20,6 @@ public class FightText : MonoBehaviour {
         Fight.SetActive(false);
 	}
 
-    private void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Debug.Log("Space Pressed, starting text");
-            StartCoroutine("StartFight");
-        }
-
-    }
-
     public IEnumerator StartFight() {
 
         for (float i = 0; i < 200; i++) {

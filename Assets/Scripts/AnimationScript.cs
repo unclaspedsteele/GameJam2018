@@ -51,7 +51,6 @@ public class AnimationScript : MonoBehaviour
         AnimationStill[0] = Resources.Load<Sprite>("Animations/Idle01");
         AnimationStill[1] = AnimationStill[0];
         AnimationStill[2] = Resources.Load<Sprite>("Animations/Idle02");
-                
         AnimationStill[3] = AnimationStill[1];
 
         AnimationDeath[0] = Resources.Load<Sprite>("Animations/Death01");
@@ -60,6 +59,7 @@ public class AnimationScript : MonoBehaviour
         AnimationDeath[3] = AnimationDeath[1];
 
         AnimationDefault = AnimationStill;
+        NextAnimation = AnimationDefault;
     }
 
     // Update is called once per frame

@@ -32,8 +32,8 @@ public class keyDetector : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         globals = GameObject.Find("globals").GetComponent<globalVars>();
-        enemyHealthBar = GameObject.Find("Main Camera").transform.Find("Canvas").Find("EnemyHealth").GetComponent<Image>();
-        playerHealthBar = GameObject.Find("Main Camera").transform.Find("Canvas").Find("PlayerHealth").GetComponent<Image>();
+        enemyHealthBar = GameObject.Find("Canvas").transform.Find("Enemy").Find("EnemyHealth").GetComponent<Image>();
+        playerHealthBar = GameObject.Find("Canvas").transform.Find("Player").Find("PlayerHealth").GetComponent<Image>();
 
         if (j)
         {
