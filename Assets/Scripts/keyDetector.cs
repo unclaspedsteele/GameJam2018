@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class key1Detector : MonoBehaviour {
+public class keyDetector : MonoBehaviour {
 
     public LayerMask boop;
 
     public globalVars globals;
 
     public GameObject curKey;
+
+    public Image enemyHealthBar;
+    public Image playerHealthBar;
 
     public bool hasHit;
     public bool j;
@@ -28,6 +32,9 @@ public class key1Detector : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         globals = GameObject.Find("globals").GetComponent<globalVars>();
+        enemyHealthBar = GameObject.Find("Main Camera").transform.Find("Canvas").Find("EnemyHealth").GetComponent<Image>();
+        playerHealthBar = GameObject.Find("Main Camera").transform.Find("Canvas").Find("PlayerHealth").GetComponent<Image>();
+
         if (j)
         {
             tName = "jAttack";
@@ -80,7 +87,8 @@ public class key1Detector : MonoBehaviour {
             }
             else if (correctHit == false && !globals.onOffense)
             {
-                globals.health -= 1;
+                //globals.health -= 1;
+                SubHealth(ref globals.health, true);
                 correctHit = true;
             }
         }
@@ -101,7 +109,8 @@ public class key1Detector : MonoBehaviour {
             if (Input.GetKeyDown(letter) && globals.onOffense == true)
             {
                 globals.score += 2;
-                globals.enemyHealth -= 1;
+                //globals.enemyHealth -= 1;
+                SubHealth(ref globals.enemyHealth, false);
                 Destroy(curKey);
                 correctHit = true;
                 hasHit = false;
@@ -123,10 +132,29 @@ public class key1Detector : MonoBehaviour {
             }
             else if (Input.GetKeyDown(letter) && globals.onOffense == true)
             {
-                globals.health -= 1;
+                SubHealth(ref globals.health, true);
+                //globals.health -= 1;
+
             }
         }
 
     }
+
+    public void SubHealth(ref int characterHealth, bool isPlayer)
+    {
+        characterHealth--;
+
+        if (isPlayer)
+        {
+            playerHealthBar.fillAmount = globals.health / (globals.numNotes * .1f);
+        }
+        else
+        {
+            enemyHealthBar.fillAmount = globals.enemyHealth / (globals.numNotes * .7f);
+        }
+
+        Debug.Log("Health: " + characterHealth);
+    }
+
 
 }
