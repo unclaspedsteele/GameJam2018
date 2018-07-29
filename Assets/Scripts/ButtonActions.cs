@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ButtonActions : MonoBehaviour {
@@ -41,6 +42,6 @@ public class ButtonActions : MonoBehaviour {
     public void startLevel()
     {
         Debug.Log("Begin playing the level");
-        SceneManager.LoadScene("Level1");
+        
     }
 }
