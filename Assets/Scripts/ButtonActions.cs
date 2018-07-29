@@ -8,6 +8,7 @@ public class ButtonActions : MonoBehaviour {
 
     public GameObject MainMenuPanel;
     public GameObject SongSelectionPanel;
+    public Dropdown songDropBox;
 
 	// Use this for initialization
 	void Start () {
