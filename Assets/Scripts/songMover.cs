@@ -10,6 +10,7 @@ public class songMover : MonoBehaviour
     public int timeTillStart;
     public int timeTillMove;
 
+    private int noteCounter;
 
     public GameObject[] jnotes;
     public GameObject[] knotes;
@@ -66,7 +67,18 @@ public class songMover : MonoBehaviour
     {
         totTime += Time.fixedDeltaTime;
 
-        if(totTime > timeTillMove)
+        if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown(KeyCode.Semicolon))
+        {
+            noteCounter++;
+        }
+
+        if (noteCounter > 12)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - .1f, transform.position.z);
+            noteCounter = 0;
+        }
+
+        if (totTime > timeTillMove)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - moveSpeed, transform.position.z);
         }

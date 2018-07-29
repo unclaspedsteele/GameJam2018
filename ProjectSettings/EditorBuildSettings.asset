@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DragonForce.unity
     guid: 6b4261613384a974f96c0dfe45f3454f
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 0fc888c76f8384606b6691640b7318a9
   m_configObjects: {}
