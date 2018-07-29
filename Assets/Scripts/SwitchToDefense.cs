@@ -31,7 +31,7 @@ public class SwitchToDefense : MonoBehaviour {
     // Use this for initialization
     void Start () {
         once = true;
-        globals = GameObject.Find("globals").GetComponent<globalVars>();
+        globals = GameObject.Find("Globals").GetComponent<globalVars>();
         //J = GameObject.FindGameObjectsWithTag("jAttack");
         //K = GameObject.FindGameObjectsWithTag("kAttack");
         //L = GameObject.FindGameObjectsWithTag("lAttack");

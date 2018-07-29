@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-public class AnimationScript : MonoBehaviour
+public class AnimationEnemyScript : MonoBehaviour
 {
 
     public float publicBPM;
@@ -115,53 +115,53 @@ public class AnimationScript : MonoBehaviour
         if (NextAnimation == AnimationDefault)
         {
             // If the user presses the corresponding button and is currently playing the default animation
-            if (Input.GetKeyDown(KeyCode.A)) //Jump
+            if (Input.GetKeyDown(KeyCode.J)) //Jump
             {
                 NextAnimation = AnimationA;
                 positions = new [] {new Vector3(0, 25, 0), new Vector3(0, 25, 0), new Vector3(0, -25, 0), new Vector3(0, -25, 0) };
                 currentImage = 0;
             }
-            else if (Input.GetKeyDown(KeyCode.S)) //Duck
+            else if (Input.GetKeyDown(KeyCode.K)) //Duck
             {
                 NextAnimation = AnimationS;
                 positions = new[] { new Vector3(0, -15, 0), new Vector3(0, -15, 0), new Vector3(0, 15, 0), new Vector3(0, 15, 0) };
                 currentImage = 0;
             }
-            else if (Input.GetKeyDown(KeyCode.D)) //Jump
+            else if (Input.GetKeyDown(KeyCode.L)) //Jump
             {
 
                 NextAnimation = AnimationD;
                 positions = new[] { new Vector3(0, 15, 0), new Vector3(0, 15, 0), new Vector3(0, -15, 0), new Vector3(0, -15, 0) };
                 currentImage = 0;
             }
-            else if (Input.GetKeyDown(KeyCode.F)) //Duck
+            else if (Input.GetKeyDown(KeyCode.Semicolon)) //Duck
             {
                 NextAnimation = AnimationF;
                 positions = new[] { new Vector3(0, -5, 0), new Vector3(0, -5, 0), new Vector3(0, 5, 0), new Vector3(0, 5, 0) };
                 currentImage = 0;
             }
-            else if (Input.GetKeyDown(KeyCode.J)) //Punch
+            else if (Input.GetKeyDown(KeyCode.A)) //Punch
             {
                 NextAnimation = AnimationJ;
-                positions = new[] { new Vector3(15, 0, 0), new Vector3(15, 0, 0), new Vector3(-15, 0, 0), new Vector3(-15, 0, 0) };
+                positions = new[] { new Vector3(-15, 0, 0), new Vector3(-15, 0, 0), new Vector3(15, 0, 0), new Vector3(15, 0, 0) };
                 currentImage = 0;
             }
-            else if (Input.GetKeyDown(KeyCode.K)) //Kick
+            else if (Input.GetKeyDown(KeyCode.S)) //Kick
             {
                 NextAnimation = AnimationK;
-                positions = new[] { new Vector3(15, 0, 0), new Vector3(15, 0, 0), new Vector3(-15, 0, 0), new Vector3(-15, 0, 0) };
+                positions = new[] { new Vector3(-15, 0, 0), new Vector3(-15, 0, 0), new Vector3(15, 0, 0), new Vector3(15, 0, 0) };
                 currentImage = 0;
             }
-            else if (Input.GetKeyDown(KeyCode.L)) //Special
+            else if (Input.GetKeyDown(KeyCode.D)) //Special
             {
                 NextAnimation = AnimationL;
-                positions = new[] { new Vector3(15, 0, 0), new Vector3(15, 0, 0), new Vector3(-15, 0, 0), new Vector3(-15, 0, 0) };
+                positions = new[] { new Vector3(-15, 0, 0), new Vector3(-15, 0, 0), new Vector3(15, 0, 0), new Vector3(15, 0, 0) };
                 currentImage = 0;
             }
-            else if (Input.GetKeyDown(KeyCode.Semicolon)) //Uppercut
+            else if (Input.GetKeyDown(KeyCode.F)) //Uppercut
             {
                 NextAnimation = AnimationSemi;
-                positions = new[] { new Vector3(15, 0, 0), new Vector3(15, 0, 0), new Vector3(-15, 0, 0), new Vector3(-15, 0, 0) };
+                positions = new[] { new Vector3(-15, 0, 0), new Vector3(-15, 0, 0), new Vector3(15, 0, 0), new Vector3(15, 0, 0) };
                 currentImage = 0;
             }
 
@@ -181,7 +181,7 @@ public class AnimationScript : MonoBehaviour
             }
         }
 
-        if (globals.health <= 0) {
+        if (globals.enemyHealth <= 0) {
             AnimationDefault = AnimationDeath;
         }
     }
