@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class selfDestruct : MonoBehaviour {
 
+    public float timer;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +13,10 @@ public class selfDestruct : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        timer += Time.fixedDeltaTime;
+        if(timer >= 2f)
+        {
+            Destroy(gameObject);
+        }
 	}
 }

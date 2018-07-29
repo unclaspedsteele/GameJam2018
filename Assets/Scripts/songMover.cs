@@ -144,7 +144,7 @@ public class songMover : MonoBehaviour
                 {
                     numNotes--;
                     GameObject clone = Instantiate(jSmoke, jnotes[i].transform);
-                    jnotes[i].transform.parent = null;
+                    clone.transform.parent = null;
                     Destroy(jnotes[i]);
                 }
             }
@@ -158,7 +158,7 @@ public class songMover : MonoBehaviour
                 {
                     numNotes--;
                     GameObject clone = Instantiate(kSmoke, knotes[i].transform);
-                    knotes[i].transform.parent = null;
+                    clone.transform.parent = null;
                     Destroy(knotes[i]);
                 }
             }
@@ -172,7 +172,7 @@ public class songMover : MonoBehaviour
                 {
                     numNotes--;
                     GameObject clone = Instantiate(lSmoke, lnotes[i].transform);
-                    lnotes[i].transform.parent = null;
+                    clone.transform.parent = null;
                     Destroy(lnotes[i]);
                 }
             }
@@ -186,7 +186,7 @@ public class songMover : MonoBehaviour
                 {
                     numNotes--;
                     GameObject clone = Instantiate(scSmoke, scnotes[i].transform);
-                    scnotes[i].transform.parent = null;
+                    clone.transform.parent = null;
                     Destroy(scnotes[i]);
                 }
             }
