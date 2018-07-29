@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DropDownSongSelector : MonoBehaviour {
@@ -37,7 +38,14 @@ public class DropDownSongSelector : MonoBehaviour {
     public void activateSong()
     {
         dropDownIndex = dropDownSongs.value;
-        if (dropDownIndex == 1)
+        if(dropDownIndex == 1)
+        {
+            SkrillexScary.SetActive(false);
+            SpiceSong.SetActive(false);
+            DragonForce.SetActive(false);
+            HBFS.SetActive(false);
+        }
+        else if(dropDownIndex == 2)
         {
             SkrillexScary.SetActive(true);
             SpiceSong.SetActive(false);
@@ -45,7 +53,7 @@ public class DropDownSongSelector : MonoBehaviour {
             HBFS.SetActive(false);
             SkrillexScary.transform.position = originalSkrillexScaryPos;
         }         
-        else if (dropDownIndex == 2)
+        else if (dropDownIndex == 3)
         {
             SpiceSong.SetActive(true);
             SkrillexScary.SetActive(false);
@@ -53,7 +61,7 @@ public class DropDownSongSelector : MonoBehaviour {
             HBFS.SetActive(false);
             SpiceSong.transform.position = originalSpicePos;
         }
-        else if (dropDownIndex == 3)
+        else if (dropDownIndex == 4)
         {
             SpiceSong.SetActive(false);
             SkrillexScary.SetActive(false);
@@ -61,7 +69,7 @@ public class DropDownSongSelector : MonoBehaviour {
             HBFS.SetActive(false);
             DragonForce.transform.position = originalDragonForcePos;
         }
-        else if(dropDownIndex == 4)
+        else if(dropDownIndex == 5)
         {
             SpiceSong.SetActive(false);
             SkrillexScary.SetActive(false);

@@ -1248,9 +1248,11 @@ MonoBehaviour:
     m_Options:
     - m_Text: Choose a Song
       m_Image: {fileID: 0}
+    - m_Text: Story Mode
+      m_Image: {fileID: 0}
     - m_Text: Scary Monsters And Nice Sprites by Skrillex
       m_Image: {fileID: 0}
-    - m_Text: Shokugeki No Soma (Spice) by Tokyo Karan Koron
+    - m_Text: Shokugeki No Soma (Spice) by Tokyo Karan Koron - HARD
       m_Image: {fileID: 0}
     - m_Text: Through The Fire and Flames by DragonForce
       m_Image: {fileID: 0}

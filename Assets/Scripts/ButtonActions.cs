@@ -51,20 +51,22 @@ public class ButtonActions : MonoBehaviour {
         else if(dropDownIndex == 1)
         {
             //Go to level1
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Story");
         }
         else if(dropDownIndex == 2)
         {
             //Go to level2
-            SceneManager.LoadScene("Spice");
+            SceneManager.LoadScene("Level1");
         }
         else if(dropDownIndex == 3)
         {
             //Go to level3
+            SceneManager.LoadScene("Spice");
         }
         else if(dropDownIndex == 4)
         {
             //GO to level4
+            SceneManager.LoadScene("DragonForce");
         }
         
     }
