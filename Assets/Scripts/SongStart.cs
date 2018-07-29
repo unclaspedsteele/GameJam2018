@@ -15,7 +15,7 @@ public class SongStart : MonoBehaviour {
         ft = GameObject.Find("Canvas").GetComponent<FightText>();
         Song.SetActive(false);
         sm = Song.GetComponent<songMover>();
-        sm.timeTillMove = 0;
+        sm.timeTillMove = 2;
         sm.timeTillStart = sm.timeTillMove + 3;
 
 	}
@@ -24,12 +24,12 @@ public class SongStart : MonoBehaviour {
 	void FixedUpdate () {
         timer += Time.deltaTime;
 
-        if (timer >= 1.9 && timer <= 2.1) {
+        if (timer >= 5.9 && timer <= 6.1) {
             ft.Setup();
             ft.StartCoroutine("StartFight");
         }
 
-        if (timer >= 5.6) {
+        if (timer >= 9.6) {
             Song.SetActive(true);
         }
 

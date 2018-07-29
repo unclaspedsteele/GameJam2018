@@ -59,51 +59,51 @@ public class AnimationScript : MonoBehaviour
         positions = new Vector3[numberOfImages];
 
         AnimationStill[0] = Resources.Load<Sprite>("Animations/Idle02");
+        //AnimationStill[1] = AnimationStill[0];
         AnimationStill[1] = AnimationStill[0];
         AnimationStill[2] = AnimationStill[0];
-        AnimationStill[3] = AnimationStill[0];
 
         AnimationDeath[0] = Resources.Load<Sprite>("Animations/Death02");
+        //AnimationDeath[1] = AnimationDeath[0];
         AnimationDeath[1] = AnimationDeath[0];
         AnimationDeath[2] = AnimationDeath[0];
-        AnimationDeath[3] = AnimationDeath[0];
 
         AnimationA[0] = Resources.Load<Sprite>("Animations/Jump01");
-        AnimationA[1] = AnimationA[0];
-        AnimationA[2] = Resources.Load<Sprite>("Animations/Jump02");
-        AnimationA[3] = AnimationA[2];
+        //AnimationA[1] = AnimationA[0];
+        AnimationA[1] = Resources.Load<Sprite>("Animations/Jump02");
+        AnimationA[2] = AnimationA[0];
         AnimationD = AnimationA;
 
         AnimationS[0] = Resources.Load<Sprite>("Animations/Duck01");
-        AnimationS[1] = AnimationS[0];
-        AnimationS[2] = Resources.Load<Sprite>("Animations/Duck02");
-        AnimationS[3] = AnimationS[2];
+        //AnimationS[1] = AnimationS[0];
+        AnimationS[1] = Resources.Load<Sprite>("Animations/Duck02");
+        AnimationS[2] = AnimationS[0];
         AnimationF = AnimationS;
 
-        AnimationJ[0] = Resources.Load<Sprite>("Animations/Punch02");
-        AnimationJ[1] = AnimationJ[0];
+        AnimationJ[0] = Resources.Load<Sprite>("Animations/Punch01");
+        //AnimationJ[1] = AnimationJ[0];
+        AnimationJ[1] = Resources.Load<Sprite>("Animations/Punch02");
         AnimationJ[2] = AnimationJ[0];
-        AnimationJ[3] = AnimationJ[0];
 
         AnimationK[0] = Resources.Load<Sprite>("Animations/Kick01");
-        AnimationK[1] = AnimationK[0];
-        AnimationK[2] = Resources.Load<Sprite>("Animations/Kick02");
-        AnimationK[3] = AnimationK[2];
+        //AnimationK[1] = AnimationK[0];
+        AnimationK[1] = Resources.Load<Sprite>("Animations/Kick02");
+        AnimationK[2] = AnimationK[0];
 
-        AnimationL[0] = Resources.Load<Sprite>("Animations/Special02");
-        AnimationL[1] = AnimationL[0];
+        AnimationL[0] = Resources.Load<Sprite>("Animations/Special01");
+        //AnimationL[1] = AnimationL[0];
+        AnimationL[1] = Resources.Load<Sprite>("Animations/Special02");
         AnimationL[2] = AnimationL[0];
-        AnimationL[3] = AnimationL[0];
 
-        AnimationSemi[0] = Resources.Load<Sprite>("Animations/Upper02");
-        AnimationSemi[1] = AnimationSemi[0];
+        AnimationSemi[0] = Resources.Load<Sprite>("Animations/Upper01");
+        //AnimationSemi[1] = AnimationSemi[0];
+        AnimationSemi[1] = Resources.Load<Sprite>("Animations/Upper02");
         AnimationSemi[2] = AnimationSemi[0];
-        AnimationSemi[3] = AnimationSemi[0];
 
         AnimationDefault = AnimationStill;
         NextAnimation = AnimationDefault;
 
-        DefaultPositions = new[] { new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(0, 0, 0) };
+        DefaultPositions = new[] { new Vector3(0, 0, 0), new Vector3(0, 0, 0), new Vector3(0, 0, 0) };
     }
 
     // Update is called once per frame
@@ -118,50 +118,50 @@ public class AnimationScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A)) //Jump
             {
                 NextAnimation = AnimationA;
-                positions = new [] {new Vector3(0, 25, 0), new Vector3(0, 25, 0), new Vector3(0, -25, 0), new Vector3(0, -25, 0) };
+                positions = new [] {new Vector3(0, 40, 0), new Vector3(0, 0, 0), new Vector3(0, -40, 0) };
                 currentImage = 0;
             }
             else if (Input.GetKeyDown(KeyCode.S)) //Duck
             {
                 NextAnimation = AnimationS;
-                positions = new[] { new Vector3(0, -15, 0), new Vector3(0, -15, 0), new Vector3(0, 15, 0), new Vector3(0, 15, 0) };
+                positions = new[] { new Vector3(0, -20, 0), new Vector3(0, 0, 0), new Vector3(0, 20, 0)};
                 currentImage = 0;
             }
             else if (Input.GetKeyDown(KeyCode.D)) //Jump
             {
 
                 NextAnimation = AnimationD;
-                positions = new[] { new Vector3(0, 15, 0), new Vector3(0, 15, 0), new Vector3(0, -15, 0), new Vector3(0, -15, 0) };
+                positions = new[] { new Vector3(0, 40, 0), new Vector3(0, 0, 0), new Vector3(0, -40, 0) };
                 currentImage = 0;
             }
             else if (Input.GetKeyDown(KeyCode.F)) //Duck
             {
                 NextAnimation = AnimationF;
-                positions = new[] { new Vector3(0, -5, 0), new Vector3(0, -5, 0), new Vector3(0, 5, 0), new Vector3(0, 5, 0) };
+                positions = new[] { new Vector3(0, -20, 0), new Vector3(0, 0, 0), new Vector3(0, 20, 0) };
                 currentImage = 0;
             }
             else if (Input.GetKeyDown(KeyCode.J)) //Punch
             {
                 NextAnimation = AnimationJ;
-                positions = new[] { new Vector3(15, 0, 0), new Vector3(15, 0, 0), new Vector3(-15, 0, 0), new Vector3(-15, 0, 0) };
+                positions = new[] { new Vector3(30, 0, 0), new Vector3(0, 0, 0), new Vector3(-30, 0, 0) };
                 currentImage = 0;
             }
             else if (Input.GetKeyDown(KeyCode.K)) //Kick
             {
                 NextAnimation = AnimationK;
-                positions = new[] { new Vector3(15, 0, 0), new Vector3(15, 0, 0), new Vector3(-15, 0, 0), new Vector3(-15, 0, 0) };
+                positions = new[] { new Vector3(30, 0, 0), new Vector3(0, 0, 0), new Vector3(-30, 0, 0) };
                 currentImage = 0;
             }
             else if (Input.GetKeyDown(KeyCode.L)) //Special
             {
                 NextAnimation = AnimationL;
-                positions = new[] { new Vector3(15, 0, 0), new Vector3(15, 0, 0), new Vector3(-15, 0, 0), new Vector3(-15, 0, 0) };
+                positions = new[] { new Vector3(30, 0, 0), new Vector3(0, 0, 0), new Vector3(-30, 0, 0) };
                 currentImage = 0;
             }
             else if (Input.GetKeyDown(KeyCode.Semicolon)) //Uppercut
             {
                 NextAnimation = AnimationSemi;
-                positions = new[] { new Vector3(15, 0, 0), new Vector3(15, 0, 0), new Vector3(-15, 0, 0), new Vector3(-15, 0, 0) };
+                positions = new[] { new Vector3(45, 0, 0), new Vector3(0, 0, 0), new Vector3(-45, 0, 0) };
                 currentImage = 0;
             }
 
@@ -169,7 +169,7 @@ public class AnimationScript : MonoBehaviour
 
 
         //Plays the next animation
-        if (timer > 1 / bps / (numberOfImages + 4)) {
+        if (timer > 1 / bps / (numberOfImages * 2)) {
             timer = 0;
             playerMaterial.sprite = NextAnimation[currentImage];
             playerMaterial.rectTransform.localPosition += positions[currentImage];

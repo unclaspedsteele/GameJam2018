@@ -285,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   publicBPM: 124
   publicFPS: 60
-  numberOfImages: 4
+  numberOfImages: 3
 --- !u!1001 &872071577
 Prefab:
   m_ObjectHideFlags: 0
@@ -355,6 +355,55 @@ Prefab:
       propertyPath: OffenseText
       value: 
       objectReference: {fileID: 1736452579}
+    - target: {fileID: 114204594283895590, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
+        type: 2}
+      propertyPath: jSmoke
+      value: 
+      objectReference: {fileID: 1514027878559132, guid: 6b337fd2b19c4b94ab75653913a4e5a5,
+        type: 2}
+    - target: {fileID: 114204594283895590, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
+        type: 2}
+      propertyPath: kSmoke
+      value: 
+      objectReference: {fileID: 1217383141690028, guid: 496fb448dd371054db236bef5bf54a36,
+        type: 2}
+    - target: {fileID: 114204594283895590, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
+        type: 2}
+      propertyPath: lSmoke
+      value: 
+      objectReference: {fileID: 1521032321636408, guid: 98ba08b1be3a0d84f9add0b5bbb1eb1f,
+        type: 2}
+    - target: {fileID: 114204594283895590, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
+        type: 2}
+      propertyPath: scSmoke
+      value: 
+      objectReference: {fileID: 1861051157611722, guid: a0785cef497b37f49a8a906c5faadbc9,
+        type: 2}
+    - target: {fileID: 114204594283895590, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
+        type: 2}
+      propertyPath: globals
+      value: 
+      objectReference: {fileID: 518210539}
+    - target: {fileID: 114461468779416184, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
+        type: 2}
+      propertyPath: framesToMove
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114975497039945090, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
+        type: 2}
+      propertyPath: start
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114461468779416184, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
+        type: 2}
+      propertyPath: zoomSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114461468779416184, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d40c9c06443246d794e8c20ae1c1d8c, type: 2}
   m_IsPrefabAsset: 0
@@ -501,6 +550,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114225004028090388, guid: 4e1c4d679482e4d0ba07f8443e812d60,
+        type: 2}
+      propertyPath: globals
+      value: 
+      objectReference: {fileID: 518210539}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1c4d679482e4d0ba07f8443e812d60, type: 2}
   m_IsPrefabAsset: 0
@@ -777,6 +831,11 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 361600545}
+    - target: {fileID: 114365884533125238, guid: 2016dab777d7247dfa4aee80a04aea96,
+        type: 2}
+      propertyPath: numberOfImages
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2016dab777d7247dfa4aee80a04aea96, type: 2}
   m_IsPrefabAsset: 0

@@ -18,6 +18,11 @@ public class songMover : MonoBehaviour
     public GameObject musicSource;
     public GameObject mySongBars;
 
+    public GameObject jSmoke;
+    public GameObject kSmoke;
+    public GameObject lSmoke;
+    public GameObject scSmoke;
+
     public GameObject DefenseText;
     public GameObject OffenseText;
     bool TextSwitch;
@@ -75,6 +80,7 @@ public class songMover : MonoBehaviour
 
         if (globals.inTransition)
         {
+            DestroyNotesOnScreen();
             if (startedTransition == false)
             {
                 startedTransition = true;
@@ -83,7 +89,7 @@ public class songMover : MonoBehaviour
                 TextShow = true;
                 TextSwitch = !TextSwitch;
             }
-            DestroyNotesOnScreen();
+
         }
 
         if(globals.inTransition == false)
@@ -137,6 +143,8 @@ public class songMover : MonoBehaviour
                 if (note_renderer.isVisible == true)
                 {
                     numNotes--;
+                    GameObject clone = Instantiate(jSmoke, jnotes[i].transform);
+                    clone.transform.parent = null;
                     Destroy(jnotes[i]);
                 }
             }
@@ -149,6 +157,8 @@ public class songMover : MonoBehaviour
                 if (note_renderer.isVisible == true)
                 {
                     numNotes--;
+                    GameObject clone = Instantiate(kSmoke, knotes[i].transform);
+                    clone.transform.parent = null;
                     Destroy(knotes[i]);
                 }
             }
@@ -161,6 +171,8 @@ public class songMover : MonoBehaviour
                 if (note_renderer.isVisible == true)
                 {
                     numNotes--;
+                    GameObject clone = Instantiate(lSmoke, lnotes[i].transform);
+                    clone.transform.parent = null;
                     Destroy(lnotes[i]);
                 }
             }
@@ -173,6 +185,8 @@ public class songMover : MonoBehaviour
                 if (note_renderer.isVisible == true)
                 {
                     numNotes--;
+                    GameObject clone = Instantiate(scSmoke, scnotes[i].transform);
+                    clone.transform.parent = null;
                     Destroy(scnotes[i]);
                 }
             }

@@ -42,9 +42,9 @@ public class CameraMovement : MonoBehaviour {
         lookAtRight = false;
         resetCamera = false;
         targetOrtho = TheCamera.GetComponent<Camera>().orthographicSize;
-        zoomSpeed = 7f;
+        zoomSpeed = 10f;
         zoomOrtho = 3f;
-        moveSpeed = 5f;
+        moveSpeed = 8f;
         normalOrtho = 12.3f;
 
         globals = GameObject.Find("Globals").GetComponent<globalVars>();
