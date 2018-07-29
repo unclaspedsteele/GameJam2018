@@ -56,6 +56,7 @@ public class ButtonActions : MonoBehaviour {
         else if(dropDownIndex == 2)
         {
             //Go to level2
+            SceneManager.LoadScene("Spice");
         }
         else if(dropDownIndex == 3)
         {
