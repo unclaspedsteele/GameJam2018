@@ -85,7 +85,7 @@ public class songMover : MonoBehaviour
             {
                 startedTransition = true;
                 testcounter += 1;
-                mySongBars.transform.position = new Vector3(mySongBars.transform.position.x * -1, mySongBars.transform.position.y, mySongBars.transform.position.z);
+                mySongBars.transform.position = new Vector3(mySongBars.transform.position.x * -1, mySongBars.transform.position.y - .2f, mySongBars.transform.position.z);
                 TextShow = true;
                 TextSwitch = !TextSwitch;
             }
@@ -132,7 +132,7 @@ public class songMover : MonoBehaviour
         }
     }
 
-    void DestroyNotesOnScreen()
+    public void DestroyNotesOnScreen()
     {
 
         for (int i = 0; i < jnotes.Length; i++)
