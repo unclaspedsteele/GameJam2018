@@ -9,12 +9,14 @@ public class ButtonActions : MonoBehaviour {
     public GameObject MainMenuPanel;
     public GameObject SongSelectionPanel;
     public Dropdown songDropBox;
+    private int dropDownIndex;
 
 	// Use this for initialization
 	void Start () {
         MainMenuPanel = GameObject.Find("Main Menu Panel");
         SongSelectionPanel = GameObject.Find("Song Selection");
         SongSelectionPanel.SetActive(false);
+        songDropBox = GameObject.Find("Dropdown").GetComponent<Dropdown>();
 	}
 	
 
@@ -30,9 +32,7 @@ public class ButtonActions : MonoBehaviour {
     {
         Debug.Log("Player wants to select a song!");
         MainMenuPanel.SetActive(false);
-        SongSelectionPanel.SetActive(true);
-        
-
+        SongSelectionPanel.SetActive(true);       
     }
 
     public void playCredits()
@@ -43,6 +43,28 @@ public class ButtonActions : MonoBehaviour {
     public void startLevel()
     {
         Debug.Log("Begin playing the level");
+        dropDownIndex = songDropBox.value;
+
+        if(dropDownIndex == 0)
+        {
+            //Incorrect choice, do nothing!
+        }
+        else if(dropDownIndex == 1)
+        {
+            //Go to level1
+        }
+        else if(dropDownIndex == 2)
+        {
+            //Go to level2
+        }
+        else if(dropDownIndex == 3)
+        {
+            //Go to level3
+        }
+        else if(dropDownIndex == 4)
+        {
+            //GO to level4
+        }
         
     }
 }

@@ -103,7 +103,7 @@ public class CycleCharacter : MonoBehaviour {
         random = Random.Range(0, 9);
         timer += Time.fixedDeltaTime;
 
-        if(timer >= 1)
+        if(timer >= 0.75f)
         {
             if (random == 1) //Jump
             {
