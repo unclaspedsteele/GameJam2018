@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 135499994332542810}
   - component: {fileID: 198907621681046278}
   - component: {fileID: 199377999824351056}
+  - component: {fileID: 114462925076944456}
   m_Layer: 0
   m_Name: SmokePuffSC
   m_TagString: Untagged
@@ -86,6 +87,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861051157611722}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114462925076944456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861051157611722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bb6ca7c832a66419abb387e6dca6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135499994332542810
 SphereCollider:
   m_ObjectHideFlags: 1
