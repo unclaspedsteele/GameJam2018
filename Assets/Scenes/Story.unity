@@ -906,8 +906,7 @@ MonoBehaviour:
   Story1: {fileID: 1866363147}
   Story2: {fileID: 186409623}
   Story3: {fileID: 478099527}
-  spaceBar: {fileID: 0}
-  NextScene: {fileID: 0}
+  spaceBar: {fileID: 1790894653}
 --- !u!212 &1913440734
 SpriteRenderer:
   m_ObjectHideFlags: 0

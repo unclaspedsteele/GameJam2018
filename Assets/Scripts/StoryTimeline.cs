@@ -9,16 +9,14 @@ public class StoryTimeline : MonoBehaviour {
     public GameObject Story2;
     public GameObject Story3;
     public GameObject spaceBar;
-
-    public S NextScene;
-
     int storyCounter;
 
 	// Use this for initialization
 	void Start () {
+        Story1.SetActive(true);
         Story2.SetActive(false);
         Story3.SetActive(false);
-        spaceBar.SetActive(false);
+        spaceBar.SetActive(true);
         storyCounter = 1;
 	}
 
@@ -42,7 +40,7 @@ public class StoryTimeline : MonoBehaviour {
             }
             else if (storyCounter > 3)
             {
-                
+                SceneManager.LoadScene("Level1");
             }
 
 

@@ -387,7 +387,7 @@ Prefab:
     - target: {fileID: 114461468779416184, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
         type: 2}
       propertyPath: framesToMove
-      value: 60
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 114975497039945090, guid: 9d40c9c06443246d794e8c20ae1c1d8c,
         type: 2}
