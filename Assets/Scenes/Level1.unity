@@ -223,6 +223,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114557411508678818, guid: d91b58058dce0433aab9b206f7bbc8f2,
+        type: 2}
+      propertyPath: difficultyScalar
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d91b58058dce0433aab9b206f7bbc8f2, type: 2}
   m_IsPrefabAsset: 0
@@ -835,6 +840,11 @@ Prefab:
         type: 2}
       propertyPath: numberOfImages
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945808538987244, guid: 2016dab777d7247dfa4aee80a04aea96,
+        type: 2}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2016dab777d7247dfa4aee80a04aea96, type: 2}

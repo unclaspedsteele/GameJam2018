@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class globalVars : MonoBehaviour {
 
@@ -10,8 +11,9 @@ public class globalVars : MonoBehaviour {
     public int enemyHealth;
     public int sideSwitchCounter; //this will keep track of the number of misses the player has had in the last however many seconds
     public int sideSwitchCounterMax; //set this to the max number of misses before the player is switched to defence
-    public int switchBackCounter;
-    public int switchBackCounterMax; //set this to the number of notes you want the player to hit in order to go back on offense
+    public int specialCounter;
+    public int specialCounterMax;
+    public int difficultyScalar;
     public int numNotes;
 
     public float switchCountTimer; 
@@ -22,17 +24,22 @@ public class globalVars : MonoBehaviour {
     public bool inTransition; //are we transitioning from offense to defense or visa versa? If so, this is true.
     public bool spaceIsPressed;
 
+    Image powerBar;
+
     // Use this for initialization
 	void Start () {
         maxHealth = Mathf.RoundToInt(numNotes * .1f);
         enemyHealth = Mathf.RoundToInt(numNotes * .7f);
+        specialCounterMax = 30 * difficultyScalar;
         health = maxHealth;
         onOffense = true;
         inTransition = false;
+        powerBar = GameObject.Find("Canvas").transform.Find("PowerBar").GetComponent<Image>();
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         if (inTransition == true)
         {
             timeToSwitch -= Time.fixedDeltaTime;
@@ -42,7 +49,7 @@ public class globalVars : MonoBehaviour {
             timeToSwitch = .7f;
         }
 
-        if(timeToSwitch <= 0)
+        if (timeToSwitch <= 0)
         {
             inTransition = false;
         }
@@ -52,7 +59,7 @@ public class globalVars : MonoBehaviour {
         if (switchCountTimer <= 0)
         {
             sideSwitchCounter -= 1;
-            switchCountTimer = switchCountTimerMax; 
+            switchCountTimer = switchCountTimerMax;
         }
 
         if (sideSwitchCounter > sideSwitchCounterMax)
@@ -60,17 +67,31 @@ public class globalVars : MonoBehaviour {
             onOffense = false;
             inTransition = true;
             sideSwitchCounter = 0;
+            specialCounter = 0;
         }
 
-        if(switchBackCounter > switchBackCounterMax)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                onOffense = true;
-                inTransition = true;
-                switchBackCounter = 0;
-            }
+            useSpecial();
         }
 
-	}
+
+        powerBar.fillAmount = (float)specialCounter / specialCounterMax;
+    }
+
+    public void useSpecial() 
+    {
+        if (specialCounter >= specialCounterMax && onOffense)
+        {
+            songMover sM = GameObject.Find("Main Camera").transform.GetChild(0).GetComponent<songMover>();
+            sM.DestroyNotesOnScreen();
+            specialCounter = 0;
+        }
+        else if (specialCounter >= specialCounterMax && !onOffense)
+        {
+            onOffense = true;
+            inTransition = true;
+            specialCounter = 0;
+        }
+    }
 }

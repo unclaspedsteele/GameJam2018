@@ -120,8 +120,8 @@ public class keyDetector : MonoBehaviour {
                 globals.score += 2;
                 GameObject clone = Instantiate(smokePuff, curKey.transform);
                 clone.transform.parent = null;
-                
-                //globals.enemyHealth -= 1;
+
+                globals.specialCounter += 1;
                 SubHealth(ref globals.enemyHealth, false);
                 Destroy(curKey);
                 correctHit = true;
@@ -132,7 +132,7 @@ public class keyDetector : MonoBehaviour {
                 globals.score += 1;
                 GameObject clone = Instantiate(smokePuff, curKey.transform);
                 clone.transform.parent = null;
-                globals.switchBackCounter += 1;
+                globals.specialCounter++;
                 Destroy(curKey);
                 correctHit = true;
                 hasHit = false;
