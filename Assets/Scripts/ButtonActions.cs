@@ -16,7 +16,6 @@ public class ButtonActions : MonoBehaviour {
         MainMenuPanel = GameObject.Find("Main Menu Panel");
         SongSelectionPanel = GameObject.Find("Song Selection");
         SongSelectionPanel.SetActive(false);
-        songDropBox = GameObject.Find("Dropdown").GetComponent<Dropdown>();
 	}
 	
 
@@ -52,6 +51,7 @@ public class ButtonActions : MonoBehaviour {
         else if(dropDownIndex == 1)
         {
             //Go to level1
+            SceneManager.LoadScene("Level1");
         }
         else if(dropDownIndex == 2)
         {
