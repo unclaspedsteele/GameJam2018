@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45106322, g: 0.50088763, b: 0.5741535, a: 1}
+  m_IndirectSpecularColor: {r: 0.45106345, g: 0.5008881, b: 0.5741541, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5460,6 +5460,7 @@ MonoBehaviour:
   song: {fileID: 1820443268}
   startSong: {fileID: 1131144372141448, guid: 503e49302c98ad1438d696151fde95f4, type: 2}
   totalNotes: 0
+  numBars: 0
   songStarted: 0
 --- !u!4 &702305343
 Transform:
@@ -5543,7 +5544,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  maxHealth: 0
   health: 0
+  enemyHealth: 0
+  sideSwitchCounter: 0
+  sideSwitchCounterMax: 0
+  specialCounter: 0
+  specialCounterMax: 0
+  difficultyScalar: 0
+  numNotes: 0
+  switchCountTimer: 0
+  switchCountTimerMax: 0
+  timeToSwitch: 0
+  onOffense: 0
+  inTransition: 0
+  spaceIsPressed: 0
 --- !u!1 &1650810488
 GameObject:
   m_ObjectHideFlags: 0
@@ -5597,7 +5612,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 00f4e8b3574ce2346b06f116f7fa8b42, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d8cd738fca2701542b4270745346cbd6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

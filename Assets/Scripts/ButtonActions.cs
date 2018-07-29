@@ -37,6 +37,7 @@ public class ButtonActions : MonoBehaviour {
     public void playCredits()
     {
         Debug.Log("Player wants to see the credits");
+        SceneManager.LoadScene("Credits");
     }
 
     public void startLevel()
