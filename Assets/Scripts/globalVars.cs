@@ -16,6 +16,10 @@ public class globalVars : MonoBehaviour {
     public int difficultyScalar;
     public int numNotes;
 
+    public GameObject useUltimate;
+    public GameObject scoreText;
+    public string text;
+
     public float switchCountTimer; 
     public float switchCountTimerMax; //Set this to the amount of time you want to give the player to miss notes before a note miss is replaced
     public float timeToSwitch;
@@ -77,7 +81,14 @@ public class globalVars : MonoBehaviour {
 
 
         powerBar.fillAmount = (float)specialCounter / specialCounterMax;
-    }
+
+        if (specialCounter >= specialCounterMax)
+        {
+            useUltimate.SetActive(true);
+        }
+
+        scoreText.GetComponent<Text>().text = "Score:\n" + score;
+        }
 
     public void useSpecial() 
     {
@@ -86,12 +97,14 @@ public class globalVars : MonoBehaviour {
             songMover sM = GameObject.Find("Main Camera").transform.GetChild(0).GetComponent<songMover>();
             sM.DestroyNotesOnScreen();
             specialCounter = 0;
+            useUltimate.SetActive(false);
         }
         else if (specialCounter >= specialCounterMax && !onOffense)
         {
             onOffense = true;
             inTransition = true;
             specialCounter = 0;
+            useUltimate.SetActive(false);
         }
     }
 }
